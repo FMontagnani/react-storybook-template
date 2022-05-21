@@ -14,15 +14,14 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build:production": "webpack --config webpack.prod.js",
     "build:ci": "npm run clean:all && npm ci",
     "clean:dist": "rm -rf dist",
     "clean:node-modules": "rm -rf node_modules",
     "clean:all": "npm run clean:dist && npm run clean:node-modules",
     "lint": "npx eslint src --color --fix",
-    "husky:prepare": "husky install",
     "start": "webpack serve --open --config webpack.dev.js",
-    "stoybook:build": "build-storybook -s public",
+    "storybook:build": "build-storybook -s public",
     "storybook:start": "start-storybook -p 6006 -s public",
     "test": "jest",
     "test:cov": "jest --coverage",
