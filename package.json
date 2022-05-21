@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@emotion/react": "11.9.0",
+    "@emotion/styled": "11.8.1",
+    "@mui/material": "5.8.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-router-dom": "6.3.0",
     "react-scripts": "5.0.1",
     "typescript": "4.6.4",
     "web-vitals": "2.1.4"
@@ -16,11 +20,13 @@
     "clean:node-modules": "rm -rf node_modules",
     "clean:all": "npm run clean:dist && npm run clean:node-modules",
     "lint": "npx eslint src --color --fix",
+    "husky:prepare": "husky install",
     "start": "webpack serve --open --config webpack.dev.js",
     "stoybook:build": "build-storybook -s public",
     "storybook:start": "start-storybook -p 6006 -s public",
     "test": "jest",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -35,10 +41,12 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.18.0",
-    "@babel/preset-env": "^7.18.0",
+    "@babel/core": "7.18.0",
+    "@babel/preset-env": "7.18.0",
     "@babel/preset-react": "7.17.12",
     "@babel/preset-typescript": "7.17.12",
+    "@commitlint/cli": "17.0.0",
+    "@commitlint/config-conventional": "17.0.0",
     "@storybook/addon-actions": "6.5.0",
     "@storybook/addon-essentials": "6.5.0",
     "@storybook/addon-interactions": "6.5.0",
@@ -65,17 +73,25 @@
     "eslint": "8.15.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "husky": "8.0.1",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
+    "lint-staged": "12.4.1",
+    "prettier": "2.6.2",
     "prop-types": "15.8.1",
     "ts-loader": "9.3.0",
     "ts-node": "10.7.0",
     "webpack": "5.72.1",
     "webpack-cli": "4.9.2",
     "webpack-dev-server": "4.9.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
