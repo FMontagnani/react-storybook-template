@@ -1,7 +1,20 @@
 # react-workbook-template
 
-React Workbook template with Typescript
+React template with Typescript for a static Single Page Application App.
 
-TODO List:
-  * Add and configure husk and commitlint
-  * Add actions for CI/CD
+# Set up
+
+- npm install
+- npm run storybook:build
+
+# Start storybook
+
+- npm run storybook:start
+
+# Run local
+
+- npm start
+
+# Build dist files
+
+- npm run build:production

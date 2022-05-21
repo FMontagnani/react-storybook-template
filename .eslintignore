@@ -1,2 +1,4 @@
 jest.config.ts
 babel.config.js
+commitlint.config.js
+webpack.*
