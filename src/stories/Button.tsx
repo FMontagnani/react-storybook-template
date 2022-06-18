@@ -27,13 +27,14 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-function Button({
+// eslint-disable-next-line import/prefer-default-export
+export const Button = ({
   primary = false,
   size = 'medium',
   backgroundColor,
   label,
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
@@ -45,6 +46,4 @@ function Button({
       {label}
     </button>
   );
-}
-
-export default Button;
+};
