@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@emotion/core": "11.0.0",
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
+    "@mui/icons-material": "5.8.0",
     "@mui/material": "5.8.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -21,11 +23,13 @@
     "clean:all": "npm run clean:dist && npm run clean:node-modules",
     "lint": "npx eslint src --color --fix",
     "start": "webpack serve --open --config webpack.dev.js",
-    "storybook:build": "build-storybook -s public",
-    "storybook:start": "start-storybook -p 6006 -s public",
+    "storybook:build": "build-storybook",
+    "storybook:start": "start-storybook -p 6006 --debug-webpack",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "browserslist": {
     "production": [
@@ -46,16 +50,18 @@
     "@babel/preset-typescript": "7.17.12",
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-conventional": "17.0.0",
-    "@storybook/addon-actions": "6.5.0",
-    "@storybook/addon-essentials": "6.5.0",
-    "@storybook/addon-interactions": "6.5.0",
-    "@storybook/addon-links": "6.5.0",
-    "@storybook/builder-webpack5": "6.5.0",
-    "@storybook/manager-webpack5": "6.5.0",
-    "@storybook/node-logger": "6.5.0",
-    "@storybook/preset-create-react-app": "4.1.0",
-    "@storybook/react": "6.5.0",
-    "@storybook/testing-library": "0.0.11",
+    "@emotion/babel-plugin": "11.9.2",
+    "@emotion/babel-preset-css-prop": "11.2.0",
+    "@storybook/addon-actions": "6.5.9",
+    "@storybook/addon-essentials": "6.5.9",
+    "@storybook/addon-interactions": "6.5.9",
+    "@storybook/addon-links": "6.5.9",
+    "@storybook/builder-webpack5": "6.5.9",
+    "@storybook/manager-webpack5": "6.5.9",
+    "@storybook/node-logger": "6.5.9",
+    "@storybook/preset-create-react-app": "4.1.2",
+    "@storybook/react": "6.5.9",
+    "@storybook/testing-library": "0.0.13",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.2.0",
     "@testing-library/user-event": "13.5.0",
@@ -66,7 +72,7 @@
     "@typescript-eslint/eslint-plugin": "5.25.0",
     "@typescript-eslint/parser": "5.25.0",
     "babel-jest": "28.1.0",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "8.2.5",
     "babel-plugin-inline-react-svg": "2.0.1",
     "babel-plugin-named-exports-order": "0.0.2",
     "eslint": "8.15.0",
@@ -77,6 +83,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "eslint-plugin-storybook": "0.5.12",
     "husky": "8.0.1",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
@@ -85,12 +92,24 @@
     "prop-types": "15.8.1",
     "ts-loader": "9.3.0",
     "ts-node": "10.7.0",
-    "webpack": "5.72.1",
-    "webpack-cli": "4.9.2",
+    "webpack": "5.73.0",
+    "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.9.0"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }

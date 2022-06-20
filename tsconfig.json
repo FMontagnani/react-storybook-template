@@ -15,10 +15,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "incremental": true
   },
   "include": [
-   "**/*.ts"
+   "**/*.ts",
+   "**/*.tsx"
   ]
 }
