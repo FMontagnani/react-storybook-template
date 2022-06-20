@@ -1,4 +1,4 @@
-# react-workbook-template
+# react-storybook-template
 
 React template with Typescript for a static Single Page Application App.
 
